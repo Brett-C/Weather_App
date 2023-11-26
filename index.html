@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
     <title>Weather App</title>
 </head>
 
@@ -18,70 +20,76 @@
         <aside class="border border-black m-3 p-3">
             <input class="" id="searchForm" placeholder="Search For A City"></input>
             <button id="searchForm-btn">Search</button>
-            <div class="border border-black m-3 p-3" id="recent-search">asdfasdf</div>
+            <div class="border border-black m-3 p-3" id="recent-search">Recent Searches
+                <div id="recnet-city_1">Denver</div>
+                <div id="recnet-city_2">Denver</div>
+                <div id="recnet-city_3">Denver</div>
+                <div id="recnet-city_4">Denver</div>
+                <div id="recnet-city_5">Denver</div>
+            </div>
         </aside>
 
         <div>
             <div class="border border-black m-3 p-3 text-center" id="location-card">Single Day Forcast</div>
             <div class="border border-black m-3 p-3" id="single-day-city">City
+            <ul>
+                <li id="single-date"></li>
+                <li id="single-icon"></li>
+                <li id="single-temp"></li>
+                <li id="single-wind"></li>
+                <li id="single-humidity"></li>
+            </ul>
+        </div>
+        <div class="border border-black m-3 p-3 text-center" id="5-day-title">5 Day Forcast</div>
+        <div class="d-flex">
+            <div class="border border-black m-3 p-3" id="5-day-cards-1">
                 <ul>
-                    <li id="single-date">Date</li>
-                    <li id="single-icon">Icon</li>
-                    <li id="single-temp">Temp</li>
-                    <li id="single-wind">Wind</li>
-                    <li id="single-humidity">Humidity</li>
+                    <li id="date1">Date</li>
+                    <li id="icon1">Icon</li>
+                    <li id="temp1">Temp</li>
+                    <li id="wind1">Wind</li>
+                    <li id="humidity1">Humidity</li>
                 </ul>
             </div>
-            <div class="border border-black m-3 p-3 text-center" id="5-day-title">5 Day Forcast</div>
-            <div class="d-flex">
-                <div class="border border-black m-3 p-3" id="5-day-cards-1">
-                    <ul>
-                        <li id="date1">Date</li>
-                        <li id="icon1">Icon</li>
-                        <li id="temp1">Temp</li>
-                        <li id="wind1">Wind</li>
-                        <li id="humidity1">Humidity</li>
-                    </ul>
-                </div>
 
-                <div class="border border-black m-3 p-3" id="5-day-cards-2">
-                    <ul>
-                        <li id="date2">Date</li>
-                        <li id="icon2">Icon</li>
-                        <li id="temp2">Temp</li>
-                        <li id="wind2">Wind</li>
-                        <li id="humidity2">Humidity</li>
-                    </ul>
-                </div>
-                <div class="border border-black m-3 p-3" id="5-day-cards-3">
-                    <ul>
-                        <li id="date3">Date</li>
-                        <li id="icon3">Icon</li>
-                        <li id="temp3">Temp</li>
-                        <li id="wind3">Wind</li>
-                        <li id="humidity3">Humidity</li>
-                    </ul>
-                </div>
-                <div class="border border-black m-3 p-3" id="5-day-cards-4">
-                    <ul>
-                        <li id="date4">Date</li>
-                        <li id="icon4">Icon</li>
-                        <li id="temp4">Temp</li>
-                        <li id="wind4">Wind</li>
-                        <li id="humidity4">Humidity</li>
-                    </ul>
-                </div>
-                <div class="border border-black m-3 p-3" id="5-day-cards-5">
-                    <ul>
-                        <li id="date5">Date</li>
-                        <li id="icon5">Icon</li>
-                        <li id="temp5">Temp</li>
-                        <li id="wind5">Wind</li>
-                        <li id="humidity5">Humidity</li>
-                    </ul>
-                </div>
+            <div class="border border-black m-3 p-3" id="5-day-cards-2">
+                <ul>
+                    <li id="date2">Date</li>
+                    <li id="icon2">Icon</li>
+                    <li id="temp2">Temp</li>
+                    <li id="wind2">Wind</li>
+                    <li id="humidity2">Humidity</li>
+                </ul>
+            </div>
+            <div class="border border-black m-3 p-3" id="5-day-cards-3">
+                <ul>
+                    <li id="date3">Date</li>
+                    <li id="icon3">Icon</li>
+                    <li id="temp3">Temp</li>
+                    <li id="wind3">Wind</li>
+                    <li id="humidity3">Humidity</li>
+                </ul>
+            </div>
+            <div class="border border-black m-3 p-3" id="5-day-cards-4">
+                <ul>
+                    <li id="date4">Date</li>
+                    <li id="icon4">Icon</li>
+                    <li id="temp4">Temp</li>
+                    <li id="wind4">Wind</li>
+                    <li id="humidity4">Humidity</li>
+                </ul>
+            </div>
+            <div class="border border-black m-3 p-3" id="5-day-cards-5">
+                <ul>
+                    <li id="date5">Date</li>
+                    <li id="icon5">Icon</li>
+                    <li id="temp5">Temp</li>
+                    <li id="wind5">Wind</li>
+                    <li id="humidity5">Humidity</li>
+                </ul>
             </div>
         </div>
+    </div>
 
 
 
