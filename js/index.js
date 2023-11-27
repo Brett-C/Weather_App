@@ -67,38 +67,25 @@ function getWeather(city) {
                         bigDateEl.innerHTML = currentDate;
                         console.log("Date:", currentDate);
                         console.log("Updated HTML elements:", bigNameEl, bigWindEl, bigIconEl, bigHumidityEl, bigDateEl);
-                    })
 
-        }
+                        for (let i = 0; i < 5; i++) {
+                            const index = 4 + (i * 8); // Get noon at each day
+                            document.getElementById(`date${i}`).innerHTML = weatherData.list[index].dt_txt.split(" ")[0];
+                            document.getElementById(`wind${i}`).innerHTML = `Wind: ${weatherData.list[index].wind.speed}`
+                            document.getElementById(`humidity${i}`).innerHTML = `Humidity: ${weatherData.list[index].main.humidity}`
+                            document.getElementById(`temp${i}`).innerHTML = `Temperature: ${weatherData.list[index].main.temp} F`
+                            document.getElementById(`icon${i}`).src = `https://openweathermap.org/img/w/${icon}.png`
+                        }
+                    })
+            }
+
         )
 
 
 
 }
 
-
-function buildSingleDayForcast(data) {
-    return `<div class="border border-black m-3 p-3" id="single-day-city">${data.name}
-    <ul>
-        <li id="single-date"></li>
-        <li id="single-icon"></li>
-        <li id="single-temp">${data.temp}</li>
-        <li id="single-wind">${data.wind}</li>
-        <li id="single-humidity">${data.humidity}</li>
-    </ul>`
-}
-
-// function parseWeather() {
-//     for(const day in Range(0,4)) {
-//         console.log(day)
-//     }
-
-// }
-
 const searchButton = document.getElementById('searchForm-btn');
 searchButton.addEventListener('click', function () {
     getCity()
 });
-
-//getWeather(city);
-// gets 5 day forcast
